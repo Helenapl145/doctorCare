@@ -1,0 +1,884 @@
+/* ================ GERAL ==================*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dm Sans';
+}
+
+:root{
+    --hue: 130;
+    --primary-color: hsl(180, 14%, 97%);
+    --secodary-color: hsl(var(--hue), 100%, 26%);
+    --tercery-color: hsl(100, 9%, 7%);
+    --quartary-color: hsl(104, 16%, 24%);
+    --fundo-secu: hsl(var(--hue), 33%, 63%, 89%);
+    --headline: hsl(210, 9%, 31%);
+    --bg-about: hsl(39, 100%, 97%);
+    --brad-hover:hsl(170, 100%, 14%);
+
+    --nav-height: 5.2rem;
+
+    font-size: 62%;
+
+    
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+html,
+body{
+    width: 100%;
+    height: 100%;
+
+    
+}
+
+ul{
+    list-style: none;
+}
+
+section{
+    padding-block: 10rem;
+}
+
+body{
+    background-color: var(--primary-color);
+
+    font-family: 'DM Sans';
+    font-size: 1.6rem;  
+    text-align: center;
+}
+
+img{
+    width: 100%;
+   
+}
+
+.botao{
+    background-color: var(--secodary-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: 1.4rem 3rem;
+    width: fit-content;
+    
+    border: none;
+    border-radius: 4rem;
+
+ 
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    margin-bottom: 6rem;
+
+    transition: background 200ms;
+}
+
+.botao:hover{
+    background-color: var(--brad-hover);
+}
+
+
+.conjunto{
+    
+    width: min(50rem, 100%); /* 1rem = 10px */
+    padding-left: 10px;
+    margin-inline: auto;
+}
+
+.logo path[fill="#00856F"]{
+    fill: var(--secodary-color);
+}
+
+.scroll .logo path{
+    fill: white;
+}
+
+.scroll button path{
+    stroke: white;
+}
+
+button.open-menu path{
+    stroke: var(--secodary-color);
+}
+
+#navegacao.scroll button.open-menu path{
+    stroke: white;
+}
+
+#contato path[stroke="#00856F"]{
+    stroke: var(--secodary-color);
+}
+
+#backToTop circle{
+    fill: var(--secodary-color);
+}
+
+/* ================ NAVEGAÇÃO ==================*/
+nav{
+    display: flex;
+
+    height: var(--nav-height);
+
+    position: fixed;
+    top: 0;
+    width: 100vw;
+
+    z-index: 100;
+}
+
+nav .menu,
+nav .close-menu{
+    position: fixed;
+}
+
+
+nav .conjunto{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding-top: 1rem;
+}
+
+nav button{
+    background: none;
+    border: none;
+    cursor:pointer
+}
+
+.scroll{
+    
+    background-color: var(--secodary-color);
+    
+}
+
+
+
+/* ================ MENU ==================*/
+.menu{
+    transform: translateY(100%);
+}
+
+body.menu-expadir{
+    overflow: hidden;
+}
+
+body.menu-expadir> :not(nav) {
+    visibility: hidden;
+  }
+  
+.menu,
+.close-menu,
+body.menu-expadir .open-menu{
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.menu-expadir .menu,
+body.menu-expadir .close-menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+body.menu-expadir .menu{
+    
+    top: 0;
+    left: 0;
+    
+
+    height:100vh;
+    width: 100vw;
+
+    background-color: var(--secodary-color);
+    padding-top: var(--nav-height);
+
+    transition: transform 200ms;
+    transform: translateY(0);
+}
+
+.menu ul:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  
+    margin-top: 2rem;
+  
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 3.1rem;
+  }
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+.menu .button{
+    display: inline-block;
+
+    padding: 4px 8px;
+    background-color: white;
+    border-radius: 2rem;
+
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: var(--secodary-color);
+    
+    text-decoration: none;
+    text-transform: uppercase;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.menu .button:hover {
+    background-color: var(--secodary-color);
+    color: white;
+
+    filter: brightness(1.3);
+}
+
+.close-menu{
+    margin-left: 5rem;
+}
+
+.redes-sociais {
+    display: flex;
+    
+    
+    align-items: center;
+    justify-content:center;
+    gap: 2.2rem;
+
+ 
+}
+
+body.menu-expadir button,
+body .logo{
+    position: relative;
+    z-index: 100;
+}
+
+body.menu-expadir .logo path{
+    fill: white;
+}
+
+body.menu-expadir button path{
+    stroke: white;
+}
+
+
+/* ================ HOME ==================*/
+#home{
+    padding-top: calc(4.1rem + var(--nav-height));
+}
+
+#home::before{
+    content: "";
+    background-color: var(--fundo-secu);
+    position: absolute;
+    height: calc(86% + var(--nav-height));
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+#home h4{
+    color: var(--secodary-color);
+
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 150%;
+
+    margin-top: 4.1rem;
+    margin-bottom: 1.6rem;
+}
+
+#home h1{
+    font-size: 3.4rem;
+    line-height: 130%;
+    
+    color: var(--tercery-color);
+
+    text-align: center;
+    margin-bottom: 2.4rem;
+}
+
+#home p{
+    font-size: 1.8rem;
+    line-height: 150%;
+
+    color: var(--quartary-color);
+
+    text-align: center;
+    margin-bottom: 3.4rem;
+}
+
+#home .botao{
+    
+    margin-inline: auto;
+
+
+}
+
+#home .botao svg{
+    width: 3rem;
+    height: 3rem;
+}
+
+#home img{
+    display: block;
+    width: 26.4rem;
+    margin-inline: auto;
+    object-position: 0 2rem;
+ }
+
+.info{
+    background-color: var(--primary-color);
+    width: 90%;
+
+    padding-block: 4rem;
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6rem;
+    
+    
+}
+
+.deta p{
+    margin: 0;
+
+    color: var(--secodary-color);
+    line-height: 150%;
+    
+}
+
+.deta h3{
+    font-size: 4rem;
+    line-height: 130%;
+    font-weight: 700;
+    color: var(--tercery-color);
+
+    
+}
+
+
+/* ================ SERVIÇOS ==================*/
+#servicos{
+    padding-bottom: 5rem;
+}
+
+#servicos h4{
+    font-size: 1.4rem;
+    line-height: 150%;
+    letter-spacing: 0.08rem;
+    color: var(--secodary-color);
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+}
+
+#servicos h2{
+    font-size: 3rem;
+    line-height: 3.9rem;
+    font-weight: 700;
+    color: var(--headline);
+
+    
+    margin-bottom: 4rem;
+}
+
+.cards{
+   
+    display: flex;
+    flex-direction: column;
+    
+    gap: 0.5rem;
+}
+
+.card{
+    background-color: white;
+    border: 1px solid var(--fundo-secu);
+    border-radius: 0.6px;
+    
+    padding: 2.4rem;
+   
+    text-align: left;
+   
+}
+
+.card svg{
+    background-color: var(--fundo-secu);
+    border-radius: 1rem;
+}
+
+.card h3{
+    margin-block: 1rem;
+    font-size: 2rem;
+    
+}
+
+.card p{
+    font-size: 1rem;
+    font-weight: 400;
+      
+}
+
+
+/* ================ SOBRE ==================*/
+
+#about{
+    
+    text-align: left;
+    background: var(--bg-about);
+}
+
+#about h4{
+    color: var(--secodary-color);
+    
+}
+
+#about h2{
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: var(--headline);
+    padding-top: 1.6rem;
+    padding-bottom: 2.4rem;
+}
+
+.conteudo p{
+    font-size: 1.4rem;
+    line-height: 150%;
+    margin-bottom: 6rem;
+}
+
+.conteudo svg{
+    fill: none;
+}
+
+
+/* ================ CONTATO ==================*/
+
+.content {
+    display: flex;
+    
+    text-align: left;
+    gap: 100rem;
+}
+
+.content header h4{
+    font-family: 'DM Sans';
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 3.9rem;
+
+}
+
+.content header address,
+.content header a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+
+}
+
+.content header address{
+    margin-top: 3.2rem;
+    margin-bottom: 1.6rem;
+}
+
+.content header a{
+    margin-bottom: 3.2rem;
+}
+
+.content .conteudo button a{
+    text-decoration: none;
+    color: white;
+}
+
+.content .conteudo .botao{
+    justify-content: left;
+}
+
+.content .conteudo .botao img{
+    width: 2rem;
+    height: 2rem;
+}
+
+/* ================ RODAPÉ ==================*/
+
+footer {
+    background-color: var(--secodary-color);
+    padding-block: 6rem;
+    text-align: left;
+    color: white;
+    
+}
+
+footer .logo{
+    display: inline-block;
+    margin-bottom: 2.4rem;
+}
+
+footer .logo svg{
+    width: 23.5rem;
+    height: 3.1rem;
+}
+
+
+footer .conteudo p{
+    line-height: 2;
+    color: var(--bg-about);
+
+    
+    margin-bottom: 3.2rem;
+}
+
+footer .redes-sociais {
+   
+    justify-content: flex-start;
+    
+}
+
+/* ================ BOTÃO PARA CIMA ==================*/
+
+#backToTop{
+    position: fixed;
+    bottom: 1rem;
+    right: 2.4rem;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: 200ms;
+}
+
+#backToTop.show{
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+/* ================ REPONSIVO ==================*/
+
+@media (min-width:520px){
+
+    /*============GERAL===============*/
+    body{
+        overflow: auto;
+        background-color: var(--primary-color);
+    }
+
+    .conjunto{
+        width: min(112rem, 100%);
+        display: grid;
+    }
+
+    .col-a{
+        grid-area: A;
+        
+    }
+
+    .col-b{
+        grid-area: B;
+        
+    }
+
+    section{
+        padding-block: 16rem;
+    }
+
+    section header h2{
+        font-size: 4rem;
+        line-height: 5.2rem;
+    }
+
+    /*============NAVEGAÇÃO===============*/
+
+    nav#navegacao .conjunto *{
+        margin: 0;
+        padding: 0;
+        visibility: initial;
+        display: initial;
+        opacity: initial;
+        flex-direction: initial;
+        position: initial;
+        font-size: initial;
+        transform: initial;
+        background-color: initial;
+        font-weight: initial;
+        color: initial;
+        filter: initial;
+    }
+
+    nav#navegacao .close-menu,
+    nav#navegacao .open-menu,
+    nav#navegacao .redes-sociais{
+        display: none;
+    }
+
+    nav#navegacao .menu{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+        
+    }
+
+    nav#navegacao .menu ul:nth-child(1){
+        display: flex;
+        gap: 3rem;
+    }
+    
+    nav#navegacao .menu ul a{
+        font-size: 1rem;
+
+        color: var(--secodary-color);
+        opacity: 0.7;
+    }
+    
+
+    nav#navegacao .menu a.button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.3rem 1rem;
+
+        border: 1px solid var(--secodary-color);
+        border-radius: 4rem;
+
+        color: var(--secodary-color);
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.8rem;
+        text-transform: uppercase;
+        margin-right: 10px;
+    }
+
+    nav#navegacao .menu a.button:hover{
+        color: white0;
+        background-color: var(--secodary-color);
+        border: none;
+    }
+
+    nav#navegacao.scroll .menu ul li a{
+        color: var(--primary-color);
+        opacity: 0.6;
+    }
+
+    nav#navegacao.scroll .menu a.button{
+        border-color: white;
+        color: white;
+    }
+
+    nav#navegacao.scroll .menu a.button.active,
+    nav#navegacao.scroll .menu a.button:hover{
+        background-color: var(--secodary-color);
+        filter: brightness(1.3);
+        border: none;
+    }
+
+    nav#navegacao .menu li a{
+        transition: opacity 0.4s;
+    }
+
+    nav#navegacao .menu li a.active,
+    nav#navegacao .menu li a:hover{
+        opacity: 1;
+        font-weight: 700;
+    }
+
+    nav#navegacao.scroll .menu a.active,
+    nav#navegacao.scroll .menu a:hover{
+        opacity: 1;
+        font-weight: 700;
+        color: white;
+    }
+
+    nav#navegacao .menu li a::after{
+        content: '';
+        width: 0%;
+        height: 2px;
+        background-color: var(--secodary-color);
+
+        display: block;
+        position: relative;
+        bottom: 0rem;
+
+        transition: width 0.2s;
+        
+    }
+
+    nav#navegacao.scroll .menu li a::after{
+        background-color: white;
+    }
+
+    nav#navegacao .menu li a.active::after
+    nav#navegacao .menu li a:hover::after{
+        padding-inline: 0.2rem;
+        width: 100%;
+    }
+
+    nav#navegacao.scroll .menu li a:hover{
+        opacity: 1;
+    }
+
+    /*========== HOME ============================*/
+
+    #home::before{
+        content: "";
+        background-color: var(--fundo-secu);
+        position: absolute;
+        height: calc(80% + var(--nav-height));
+        width: 100%;
+        z-index: -1;
+        top: 0;
+        left: 0;
+    }
+
+    #home {
+        padding-block: 0;
+        padding-top: var(--nav-height);
+    }
+
+    #home .conjunto{
+        grid-template-columns: 42rem 1fr;
+        grid-template-areas: 'A B'
+                             'C C';
+        
+    }
+
+    #home .col-a{
+        
+        text-align: left;
+        align-self: center;
+        margin-left: 40px;
+    }
+
+
+    #home h1{
+        font-size: 3rem;
+    }
+
+    #home .conteudo p{
+        font-size: 0.1rem;
+    }
+
+    #home .info{
+        grid-area: C;
+        background-color: white;
+
+        flex-direction: row;
+        padding: 3rem;
+        gap: 0;
+    }
+
+    #home .info .deta + .deta{
+        border-left: 1px solid var(--secodary-color);
+    }
+
+    #home .info .deta{
+        flex: 1;
+    }
+
+    #home .botao{
+        margin:0;
+        margin-inline: auto;
+    }
+
+    #home img{
+        
+        width: 30rem;
+    }
+
+    /*============SERVIÇOS===============*/
+    #servicos h2{
+        width: 47rem;
+        margin-inline: auto;
+    }
+
+    #servicos .cards{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    #servicos .card{
+        width: 30%;
+        
+    }
+
+    /*============ABOUT===============*/
+
+    #about .conjunto{
+        grid-template-columns: 35rem 1fr;
+        grid-template-areas: 'B A';
+        gap: 4rem;
+
+    }
+
+    #about .col-a {
+        align-self: center;
+    }
+
+    #about .conteudo p{
+        margin-bottom: 0;
+    }
+
+    /*============CONTATO===============*/
+
+    #contato .conjunto{
+        grid-template-columns: 1fr 37rem;
+        grid-template-areas: 'A B';
+    }
+
+    #contato h4{
+        width: 30rem;
+    }
+
+    /*============FOOTER===============*/
+
+    footer{
+        padding-block: 3rem;
+    }
+
+    
+    footer .conjunto{
+        grid-template-columns: 0.5fr 1fr;
+        grid-template-areas: 'A B';
+    } 
+
+    footer .col-a{
+        align-self: center;
+    }
+
+    footer .col-b{
+        align-self: center;
+        justify-self: end;
+        width: 100px;
+        
+    }
+
+    footer p{
+        margin-bottom: 0;
+    }
+}
